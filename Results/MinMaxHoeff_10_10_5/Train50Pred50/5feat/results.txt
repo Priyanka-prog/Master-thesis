@@ -1,0 +1,86 @@
+      Evaluate experiments (sequentially)
+<--
+   Printing results for run 0
+      Best result for Technique.LR_RIDGE - Configuration is ['alpha_loguniform(0.01,1)'] - (Training MAPE is 19.224632 - HP Selection MAPE is 19.659791) - Validation MAPE is 16.806281
+      Best result for Technique.XGBOOST - Configuration is ['min_child_weight_1', 'gamma_loguniform(0.1,10)', 'n_estimators_1000', 'learning_rate_loguniform(0.01,1)', 'max_depth_100'] - (Training MAPE is 14.805710 - HP Selection MAPE is 19.664836) - Validation MAPE is 16.840995
+      Best result for Technique.DT - Configuration is ['criterion_mse', 'max_depth_3', 'max_features_auto', 'min_samples_split_loguniform(0.01,1)', 'min_samples_leaf_loguniform(0.01,0.5)'] - (Training MAPE is 18.381681 - HP Selection MAPE is 19.632512) - Validation MAPE is 16.671066
+      Best result for Technique.RF - Configuration is ['n_estimators_5', 'criterion_mse', 'max_depth_quniform(3,6,1)', 'max_features_auto', 'min_samples_split_loguniform(0.1,1)', 'min_samples_leaf_1'] - (Training MAPE is 18.327856 - HP Selection MAPE is 19.605400) - Validation MAPE is 16.920230
+      Best result for Technique.SVR - Configuration is ['C_loguniform(0.001,1)', 'epsilon_loguniform(0.01,1)', 'gamma_1e-07', 'kernel_linear', 'degree_2'] - (Training MAPE is 17.885168 - HP Selection MAPE is 17.471476) - Validation MAPE is 15.214929
+Overall best result is Technique.SVR ['C_loguniform(0.001,1)', 'epsilon_loguniform(0.01,1)', 'gamma_1e-07', 'kernel_linear', 'degree_2']
+Metrics for best result:
+-->
+   MAPE: (Training 17.885168 - HP Selection 17.471476) - Validation 15.214929
+   RMSE: (Training 0.472918 - HP Selection 0.464132) - Validation 0.456896
+   R^2 : (Training -0.176795 - HP Selection -0.171973) - Validation -0.221826
+<--
+Building the final regressors
+   Validation metrics on full dataset for Technique.LR_RIDGE:
+-->
+      MAPE: 18.520141
+      RMSE: 0.430463
+      R^2 : 0.011488
+<--
+   Validation metrics on full dataset for Technique.XGBOOST:
+-->
+      MAPE: 18.000970
+      RMSE: 0.420199
+      R^2 : 0.058064
+<--
+   Validation metrics on full dataset for Technique.DT:
+-->
+      MAPE: 17.201945
+      RMSE: 0.422221
+      R^2 : 0.048978
+<--
+   Validation metrics on full dataset for Technique.RF:
+-->
+      MAPE: 18.625393
+      RMSE: 0.433606
+      R^2 : -0.003001
+<--
+   Validation metrics on full dataset for Technique.SVR:
+-->
+      MAPE: 13.294096
+      RMSE: 0.491735
+      R^2 : -0.289949
+<--
+Built the final regressors
+Best models:
+-->
+   Technique.LR_RIDGE:
+   Optimal hyperparameter(s) found with Hyperopt: {'alpha': 0.936}
+LRRidge coefficients:
+   (0.877 * feat_03)
+ + (0.498 * feat_05)
+ + (-0.494 * feat_01)
+ + (0.42 * feat_14)
+ + (0.4 * feat_04)
+ + (0.302 * feat_02)
+ + (-0.3 * feat_11)
+ + (-0.192 * feat_12)
+ + (-0.084 * feat_15)
+ + (-0.029 * feat_13)
+ + (0.017)
+   Technique.XGBOOST:
+   Optimal hyperparameter(s) found with Hyperopt: {'gamma': 7.265, 'learning_rate': 0.462, 'max_depth': 100, 'min_child_weight': 1, 'n_estimators': 1000}
+XGBoost weights: {
+    0.208 feat_11
+    0.167 feat_02
+    0.125 feat_14
+    0.125 feat_04
+    0.125 feat_05
+    0.125 feat_13
+    0.083 feat_03
+    0.042 feat_12
+}
+   Technique.DT:
+   Optimal hyperparameter(s) found with Hyperopt: {'min_samples_leaf': 0.464, 'min_samples_split': 0.985, 'criterion': 'mse', 'max_depth': 3, 'max_features': 'auto'}
+(DecisionTree)
+   Technique.RF:
+   Optimal hyperparameter(s) found with Hyperopt: {'max_depth': 4.0, 'min_samples_split': 0.189, 'n_estimators': 5, 'criterion': 'mse', 'max_features': 'auto', 'min_samples_leaf': 1}
+(RandomForest)
+   Technique.SVR:
+   Optimal hyperparameter(s) found with Hyperopt: {'C': 0.287, 'epsilon': 0.012, 'gamma': 0.0, 'kernel': 'linear', 'degree': 2}
+(SVR)
+<--
+Execution Time : 506.5973334312439

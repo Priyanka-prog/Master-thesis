@@ -1,0 +1,96 @@
+      Evaluate experiments (sequentially)
+<--
+   Printing results for run 0
+      Best result for Technique.LR_RIDGE - Configuration is ['alpha_loguniform(0.01,1)'] - (Training MAPE is 18.840553 - HP Selection MAPE is 19.651864) - Validation MAPE is 17.004133
+      Best result for Technique.XGBOOST - Configuration is ['min_child_weight_1', 'gamma_loguniform(0.1,10)', 'n_estimators_1000', 'learning_rate_loguniform(0.01,1)', 'max_depth_100'] - (Training MAPE is 15.370861 - HP Selection MAPE is 19.509500) - Validation MAPE is 16.980040
+      Best result for Technique.DT - Configuration is ['criterion_mse', 'max_depth_3', 'max_features_auto', 'min_samples_split_loguniform(0.01,1)', 'min_samples_leaf_loguniform(0.01,0.5)'] - (Training MAPE is 17.410961 - HP Selection MAPE is 19.507689) - Validation MAPE is 17.108263
+      Best result for Technique.RF - Configuration is ['n_estimators_5', 'criterion_mse', 'max_depth_quniform(3,6,1)', 'max_features_auto', 'min_samples_split_loguniform(0.1,1)', 'min_samples_leaf_1'] - (Training MAPE is 17.831168 - HP Selection MAPE is 19.582777) - Validation MAPE is 16.804799
+      Best result for Technique.SVR - Configuration is ['C_loguniform(0.001,1)', 'epsilon_loguniform(0.01,1)', 'gamma_1e-07', 'kernel_linear', 'degree_2'] - (Training MAPE is 19.574047 - HP Selection MAPE is 20.814470) - Validation MAPE is 16.927062
+Overall best result is Technique.DT ['criterion_mse', 'max_depth_3', 'max_features_auto', 'min_samples_split_loguniform(0.01,1)', 'min_samples_leaf_loguniform(0.01,0.5)']
+Metrics for best result:
+-->
+   MAPE: (Training 17.410961 - HP Selection 19.507689) - Validation 17.108263
+   RMSE: (Training 0.411706 - HP Selection 0.460758) - Validation 0.445622
+   R^2 : (Training 0.111004 - HP Selection -0.143800) - Validation -0.159244
+<--
+Building the final regressors
+   Validation metrics on full dataset for Technique.LR_RIDGE:
+-->
+      MAPE: 18.231166
+      RMSE: 0.430283
+      R^2 : 0.012315
+<--
+   Validation metrics on full dataset for Technique.XGBOOST:
+-->
+      MAPE: 15.208379
+      RMSE: 0.398919
+      R^2 : 0.151055
+<--
+   Validation metrics on full dataset for Technique.DT:
+-->
+      MAPE: 16.295243
+      RMSE: 0.420371
+      R^2 : 0.057297
+<--
+   Validation metrics on full dataset for Technique.RF:
+-->
+      MAPE: 17.083865
+      RMSE: 0.408284
+      R^2 : 0.110726
+<--
+   Validation metrics on full dataset for Technique.SVR:
+-->
+      MAPE: 13.294096
+      RMSE: 0.491735
+      R^2 : -0.289949
+<--
+Built the final regressors
+Best models:
+-->
+   Technique.LR_RIDGE:
+   Optimal hyperparameter(s) found with Hyperopt: {'alpha': 0.465}
+LRRidge coefficients:
+   (1.659 * feat_05)
+ + (0.992 * feat_17)
+ + (-0.845 * feat_13)
+ + (-0.843 * feat_12)
+ + (0.798 * feat_03)
+ + (0.694 * feat_02)
+ + (-0.675 * feat_01)
+ + (0.659 * feat_18)
+ + (0.647 * feat_10)
+ + (0.625 * feat_07)
+ + (0.513 * feat_09)
+ + (-0.502 * feat_19)
+ + (0.358 * feat_08)
+ + (0.337 * feat_15)
+ + (0.282 * feat_06)
+ + (-0.271 * feat_14)
+ + (-0.236 * feat_16)
+ + (-0.184 * feat_20)
+ + (0.114 * feat_11)
+ + (0.098 * feat_04)
+ + (-1.393)
+   Technique.XGBOOST:
+   Optimal hyperparameter(s) found with Hyperopt: {'gamma': 5.026, 'learning_rate': 0.204, 'max_depth': 100, 'min_child_weight': 1, 'n_estimators': 1000}
+XGBoost weights: {
+    0.385 feat_17
+    0.154 feat_20
+    0.077 feat_09
+    0.077 feat_08
+    0.077 feat_19
+    0.077 feat_05
+    0.077 feat_18
+    0.077 feat_06
+}
+   Technique.DT:
+   Optimal hyperparameter(s) found with Hyperopt: {'min_samples_leaf': 0.252, 'min_samples_split': 0.082, 'criterion': 'mse', 'max_depth': 3, 'max_features': 'auto'}
+(DecisionTree)
+   Technique.RF:
+   Optimal hyperparameter(s) found with Hyperopt: {'max_depth': 4.0, 'min_samples_split': 0.117, 'n_estimators': 5, 'criterion': 'mse', 'max_features': 'auto', 'min_samples_leaf': 1}
+(RandomForest)
+   Technique.SVR:
+   Optimal hyperparameter(s) found with Hyperopt: {'C': 0.012, 'epsilon': 0.011, 'gamma': 0.0, 'kernel': 'linear', 'degree': 2}
+(SVR)
+<--
+Execution Time : 24563.4664144516
